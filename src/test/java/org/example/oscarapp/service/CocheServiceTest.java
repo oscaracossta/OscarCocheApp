@@ -29,7 +29,7 @@ public class CocheServiceTest {
     void setUp() {
         coche = new Coche();
         coche.setId(1L);
-        coche.setMarca("Toyota");
+        coche.setMarca("Ferrari");
         coche.setModelo("Corolla");
         coche.setAnio(2022);
         coche.setMatricula("1234ABC");
