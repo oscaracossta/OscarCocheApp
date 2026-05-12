@@ -12,7 +12,7 @@ jobs:
       mysql:
         image: mysql:8
         env:
-          MYSQL_ROOT_PASSWORD:
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: cifp
         ports:
           - 3306:3306
@@ -20,7 +20,7 @@ jobs:
           --health-cmd="mysqladmin ping -h localhost -proot"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=5
+          --health-retries=10
 
     steps:
       - name: 1. Descargar el código del repositorio
@@ -36,7 +36,7 @@ jobs:
         env:
           SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/cifp?serverTimezone=UTC
           SPRING_DATASOURCE_USERNAME: root
-          SPRING_DATASOURCE_PASSWORD:
+          SPRING_DATASOURCE_PASSWORD: root
         run: |
           chmod +x mvnw
           ./mvnw test
